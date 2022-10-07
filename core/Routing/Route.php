@@ -11,32 +11,32 @@ abstract class Route
    */
   private static array $routes = [];
 
-  public static function get(string $location, array $actions)
+  public static function get(string $location, $actions)
   {
     self::addURI($location, 'get', $actions);
   }
 
-  public static function post(string $location, array $actions)
+  public static function post(string $location, $actions)
   {
     self::addURI($location, 'post', $actions);
   }
 
-  public static function put(string $location, array $actions = [])
+  public static function put(string $location, $actions = [])
   {
     self::addURI($location, 'put', $actions);
   }
 
-  public static function patch(string $location, array $actions)
+  public static function patch(string $location, $actions)
   {
     self::addURI($location, 'patch', $actions);
   }
 
-  public static function delete(string $location, array $actions)
+  public static function delete(string $location, $actions)
   {
     self::addURI($location, 'delete', $actions);
   }
 
-  private static function addURI(string $location, string $method, array $actions): void
+  private static function addURI(string $location, string $method, $actions): void
   {
     self::$routes[] = new URI($location, $method, $actions);
   }

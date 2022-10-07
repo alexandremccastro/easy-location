@@ -19,9 +19,9 @@ class URI
   /**
    * @var array The actions that the route will execute.
    */
-  private array $actions;
+  private $actions;
 
-  public function __construct(string $location, string $method, array $actions)
+  public function __construct(string $location, string $method, $actions)
   {
     $this->location = $location;
     $this->method = $method;
@@ -73,12 +73,18 @@ class URI
   /**
    * Execute the action related to the URI.
    *
+   * @param array $params Params to pass to execution function.
    * @return void
    */
-  public function execute($params = []): void
+  public function execute(array $params = []): void
   {
-    [$clazz, $method] = $this->actions;
-    (new $clazz())->$method(...$params);
+    if (is_array($this->actions)) {
+      [$clazz, $method] = $this->actions;
+      (new $clazz())->$method(...$params);
+    } else if (is_callable($this->actions)) {
+      $function = $this->actions;
+      $function(...$params);
+    }
   }
 
   /**
