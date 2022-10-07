@@ -13,11 +13,11 @@ class HomeController
     $this->locationRepository = new LocationRepository();
   }
 
-  public function home(): void
+  public function home()
   {
     $result = $this->locationRepository->filter(request()->all());
     [$locations, $pagination] = array_values($result);
 
-    view('home', compact('locations', 'pagination'));
+    return view('home', compact('locations', 'pagination'));
   }
 }

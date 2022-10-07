@@ -7,7 +7,13 @@ use Core\Routing\Route;
 
 abstract class App
 {
-  public static function serve($requestURI): void
+	/**
+	 * App start point that loads all resources.
+	 *
+	 * @param string $requestURI That request that will be processed.
+	 * @return void
+	 */
+  public static function serve(string $requestURI): void
   {
     try {
       self::loadResources('helpers');
@@ -18,6 +24,12 @@ abstract class App
     }
   }
 
+	/**
+	 * Load all files in a given directory.
+	 *
+	 * @param string $directory The directory that will be loaded.
+	 * @return void
+	 */
   private static function loadResources(string $directory)
   {
     $routes = scandir($directory);
