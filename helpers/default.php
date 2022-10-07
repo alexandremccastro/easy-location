@@ -26,6 +26,7 @@ function formatMoney($value, $symbol = null): string
 
 function formatKM($value): string
 {
+
   if (is_numeric($value)) return number_format($value, 2) . ' KM';
   return $value;
 }

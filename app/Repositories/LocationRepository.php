@@ -110,6 +110,6 @@ class LocationRepository extends Repository
 		$b = sin($latFrom) * sin($latTo) + cos($latFrom) * cos($latTo) * cos($lonDelta);
 
 		$angle = atan2(sqrt($a), $b);
-		return $angle * 6371000; // the earth radius
+		return $angle * 6371000 / 1000; // the earth radius
   }
 }
