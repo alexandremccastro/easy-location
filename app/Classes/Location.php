@@ -2,7 +2,9 @@
 
 namespace App\Classes;
 
-class Location
+use JsonSerializable;
+
+class Location implements JsonSerializable
 {
   private string $name;
   private string $latitude;
@@ -43,6 +45,15 @@ class Location
   public function getPrice(): string
   {
     return $this->price;
+  }
+
+  public function jsonSerialize(): array
+	{
+    return [
+			'name' => $this->getName(),
+			'price' => formatMoney($this->getPrice(), 'EUR'),
+			'distance' => formatKM($this->getDistance())
+    ];
   }
 }
 
