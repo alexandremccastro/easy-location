@@ -35,7 +35,6 @@ class Client
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_SSL_VERIFYHOST => false,
       CURLOPT_SSL_VERIFYPEER => false,
-      CURLOPT_ENCODING => ""
     ]);
 
     $result = curl_exec($ch);

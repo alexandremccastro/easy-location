@@ -26,7 +26,7 @@
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark navbar-expand-lg mb-5">
+        <nav class="navbar navbar-dark sticky-top bg-dark navbar-expand-lg mb-5">
             <div class="container-fluid">
                 <a href="/home" class="navbar-brand">EasyLocation</a>
                 <div class="collapse navbar-collapse mx-auto">
